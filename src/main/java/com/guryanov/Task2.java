@@ -1,9 +1,9 @@
 package com.guryanov;
 
-public class Main {
+public class Task2 {
     public static void main(String[] args) {
         int[] arrayToFind = {6, 7, 8};
-        int[] arrayMain = {5, 6, 7, 8, 9, 10};
+        int[] arrayMain = {5, 6, 7, 9, 9, 10};
         System.out.println(TwoArray(arrayMain, arrayToFind));
     }
 
@@ -25,6 +25,7 @@ public class Main {
                 include = false;
                 j++;
                 if (find & include == false) break;
+
             }
         }
         if (find & include) result = "Входит";
