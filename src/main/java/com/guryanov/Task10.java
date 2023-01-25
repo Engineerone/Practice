@@ -2,60 +2,63 @@ package com.guryanov;
 
 public class Task10 {
     public static void main(String[] args) {
-        String mystring = "80+42=122 ";
-        System.out.println("Результат: " + calc(mystring));
+        String[] task = new String[10];
+        task[0] = "2+4=5";
+        task[1] = "6*3=18";
+        task[2] = "21/3=7";
+        task[3] = "5+10=16";
+        task[4] = "3*3=9";
+        task[5] = "20*20=399";
+        task[6] = "25*25=625";
+      /*task[7] =
+        task[8] =
+        task[9] = */
+        for (String a : task) calc(a);
     }
 
-    В РАБОТЕ !!!!!!!!!!!!!!!!!!!!!!!!
+    public static void calc(String mystring) {
+        if (mystring != null) {
+            mystring += " ";
+            int[] num = new int[3];
+            char[] sign = new char[3];
+            int index = 0;
+            String tempString = "";
 
+            for (int i = 0; i < mystring.length(); i++) {
+                if (Character.isDigit(mystring.charAt(i))) {
+                    tempString += mystring.charAt(i);
+                } else {
+                    num[index] = Integer.parseInt(tempString);
+                    sign[index] = mystring.charAt(i);
+                    tempString = "";
+                    index++;
+                }
+            }
+            System.out.println();
+            System.out.println(mystring);
 
-
-    public static double calc(String mystring) {
-        double result = 0;
-        int[] mynum = new int[3];
-        char[] mysign = new char[2];
-        int ind = 0;
-        int num1 = 0;
-        int num2 = 0;
-        int num3 = 0;
-        char sign = 'a';
-        String numstring = "";
-
-        for (int i = 0; i < mystring.length(); i++) {
-            if (Character.isDigit(mystring.charAt(i))) {
-                numstring += mystring.charAt(i);
-            } else {
-               mynum[ind] = Integer.parseInt(numstring);
-               numstring = "";
-               ind++;
-               /*num1 = Integer.parseInt(numstring);*/
-               mysign[ind-1]= mystring.charAt(i);
-
-                /*sign = mystring.charAt(i);*/
-
+            switch (sign[0]) {
+                case ('+'): {
+                    if (num[0] + num[1] == num[2]) System.out.println("Выражение верно");
+                    else System.out.println("Выражение НЕ верно");
+                    break;
+                }
+                case ('-'): {
+                    if (num[0] - num[1] == num[2]) System.out.println("Выражение верно");
+                    else System.out.println("Выражение НЕ верно");
+                    break;
+                }
+                case ('*'): {
+                    if (num[0] * num[1] == num[2]) System.out.println("Выражение верно");
+                    else System.out.println("Выражение НЕ верно");
+                    break;
+                }
+                case ('/'): {
+                    if (num[0] / num[1] == num[2]) System.out.println("Выражение верно");
+                    else System.out.println("Выражение НЕ верно");
+                    break;
+                }
             }
         }
-        //num2 = Integer.parseInt(numstring);
-
-     /*   switch (sign) {
-            case ('+'): {
-                result = num1 + num2;
-                break;
-            }
-            case ('-'): {
-                result = num1 - num2;
-                break;
-            }
-            case ('*'): {
-                result = num1 * num2;
-                break;
-            }
-            case ('/'): {
-                result = (double) num1 / num2;
-                break;
-            }
-        }*/
-
-        return result;
     }
 }
